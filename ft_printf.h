@@ -1,16 +1,15 @@
-#ifndef LIBFT_PRINTF_H
-# define LIBFT_PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-#include <stdarg.h>
-#include <stdlib.h>
+int		ft_printf(const char *s, ...);
 
-typedef struct	s_print
-{
-	va_list		params;
-	int			total_length;
-	int			perc;
-}				t_print;
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr_base(int nb, char *base);
 
-int	ft_printf(const char *, ...);
+size_t	ft_strlen(const char *s);
 
 #endif
