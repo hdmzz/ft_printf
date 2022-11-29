@@ -19,3 +19,22 @@ int	ft_putstr(char *s)
 {
 	return (write(1, s, ft_strlen(s)));
 }
+
+int	print_number(long nl)
+{
+	int		total;
+	long	num;
+
+	total = 0;
+	if (nl < 0)
+	{
+		total += ft_putchar('-');
+		num = -nl;
+	}
+	if (nl >= 100)
+		total += print_number(nl / 10);
+	else if (nl > 0)
+		total += ft_putchar((nl / 10) + '0');
+	total += ft_putchar(((nl / 10) + '0'));
+	return (total);
+}

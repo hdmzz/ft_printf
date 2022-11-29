@@ -2,7 +2,8 @@ NAME =	libftprintf.a
 
 SRCS =	ft_printf.c \
 		./includes/ft_print_utils.c \
-		./includes/ft_putnbr_base.c
+		./includes/ft_putnbr_base.c \
+		./includes/ft_print_pointer.c
 
 OBJS =	$(SRCS:.c=.o)
 

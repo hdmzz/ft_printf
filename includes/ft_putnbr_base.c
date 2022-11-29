@@ -1,19 +1,31 @@
 #include "../ft_printf.h"
 
-int	ft_putnbr_base(int nb, char *base)
+int	ft_putnbr_base(long long nb, char *base)
 {
-	int	baselen;
-	int	i;
+	long long	baselen;
+	int					res[100];
+	int					i;
+	int					total;
+	int					sign;
 
 	baselen = ft_strlen(base);
 	i = 0;
-	if (nb > baselen)
+	total = 0;
+	if (nb < 0)
 	{
-		ft_putnbr_base((nb / baselen), base);
-		ft_putchar(base[nb % baselen]);
+		res[i] = '-';
+		nb = -nb;
 		i++;
 	}
-	else
-		ft_putchar(base[nb]);
-	return (i + 1);
+	while (nb >= baselen)
+	{
+		res[i] = base[nb % baselen];
+		nb = nb / baselen;
+		i++;
+	}
+	res[i] = base[nb];
+	while (i >= 0)
+		total += ft_putchar(res[i--]);
+
+	return (total);
 }
