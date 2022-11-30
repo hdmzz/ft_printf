@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hdamitzi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 11:47:02 by hdamitzi          #+#    #+#             */
+/*   Updated: 2022/11/30 11:47:04 by hdamitzi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 int	ft_putnbr_base(long long nb, char *base)
@@ -6,7 +18,6 @@ int	ft_putnbr_base(long long nb, char *base)
 	int					res[100];
 	int					i;
 	int					total;
-	int					sign;
 
 	baselen = ft_strlen(base);
 	i = 0;

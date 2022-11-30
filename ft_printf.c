@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hdamitzi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 11:41:41 by hdamitzi          #+#    #+#             */
+/*   Updated: 2022/11/30 11:41:44 by hdamitzi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static size_t	ft_dispatch(va_list params, const char *format, int i)
@@ -11,9 +23,9 @@ static size_t	ft_dispatch(va_list params, const char *format, int i)
 	else if (format[i] == 'X')
 		return (ft_putnbr_base((int)va_arg(params, int), "0123456789ABCDEF"));
 	else if (format[i] == 'p')
-		return (ft_print_pointer((long long)va_arg(params, void *)));
+		return (ft_print_pointer((void *)va_arg(params, void *)));
 	else if (format[i] == 'd' || format[i] == 'i')
-		return (ft_putnbr())
+		return (ft_putnbr((int)va_arg(params, int)));
 	else if (format[i] == '%')
 		return (write(1, "%", 1));
 	return (0);
