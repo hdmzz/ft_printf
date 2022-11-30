@@ -15,9 +15,9 @@
 int	ft_putnbr_base(long long nb, char *base)
 {
 	long long	baselen;
-	int					res[100];
-	int					i;
-	int					total;
+	int			res[100];
+	int			i;
+	int			total;
 
 	baselen = ft_strlen(base);
 	i = 0;
@@ -37,6 +37,5 @@ int	ft_putnbr_base(long long nb, char *base)
 	res[i] = base[nb];
 	while (i >= 0)
 		total += ft_putchar(res[i--]);
-
 	return (total);
 }

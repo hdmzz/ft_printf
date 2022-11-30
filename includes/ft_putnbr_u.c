@@ -9,8 +9,6 @@
 /*   Updated: 2022/11/30 11:48:10 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 #include "../ft_printf.h"
 
 int	ft_putnbr_u(unsigned long nl)
@@ -31,4 +29,4 @@ int	ft_putnbr_u(unsigned long nl)
 		total += ft_putchar((num / 10) + '0');
 	total += ft_putchar((num % 10) + '0');
 	return (total);
-	}
+}
