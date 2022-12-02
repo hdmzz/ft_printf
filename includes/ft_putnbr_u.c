@@ -18,11 +18,6 @@ int	ft_putnbr_u(unsigned long nl)
 
 	total = 0;
 	num = nl;
-	if (nl < 0)
-	{
-		total += ft_putchar('-');
-		num = -nl;
-	}
 	if (num >= 100)
 		total += ft_putnbr_u(num);
 	else if ((num / 10) > 9)
