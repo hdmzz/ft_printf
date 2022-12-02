@@ -30,7 +30,7 @@ int	ft_putchar(char c)
 int	ft_putstr(char *s)
 {
 	if (!s)
-		return (0);
+		return (ft_putstr("(null)"));
 	return (write(1, s, ft_strlen(s)));
 }
 

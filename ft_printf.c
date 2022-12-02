@@ -15,15 +15,17 @@
 static size_t	ft_dispatch(va_list params, const char *format, int i)
 {
 	if (format[i] == 's')
-		return (ft_putstr((char *)va_arg(params, const char *)));
+		return (ft_putstr(va_arg(params, char *)));
 	else if (format[i] == 'c')
 		return (ft_putchar(va_arg(params, int)));
 	else if (format[i] == 'x')
-		return (ft_putnbr_base(va_arg(params, unsigned int), "0123456789abcdef"));
+		return (ft_putnbr_base(va_arg(params, unsigned int),
+				"0123456789abcdef"));
 	else if (format[i] == 'X')
-		return (ft_putnbr_base(va_arg(params, unsigned int), "0123456789ABCDEF"));
+		return (ft_putnbr_base(va_arg(params, unsigned int),
+				"0123456789ABCDEF"));
 	else if (format[i] == 'p')
-		return (ft_print_pointer(va_arg(params, void *)));
+		return (ft_print_pointer((unsigned long long)va_arg(params, void *)));
 	else if (format[i] == 'd' || format[i] == 'i')
 		return (ft_putnbr(va_arg(params, int)));
 	else if (format[i] == 'u')
