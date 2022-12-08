@@ -17,14 +17,12 @@
 # include <unistd.h>
 
 int		ft_printf(const char *s, ...);
+int		ft_strlen(const char *s);
 
-int		ft_putchar(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr_base(long long nb, char *base);
-int		ft_print_pointer(void *ptr);
-int		ft_putnbr(long nl);
-int		ft_putnbr_u(unsigned long nl);
+void	ft_putc(char c, int *total);
+void	ft_puts(char *str, int *total);
+void	ft_putnb_base(long long nb, char *base, int *total);
+void	ft_putnb(unsigned long long nl, int *total);
 
-size_t	ft_strlen(const char *s);
 
 #endif
