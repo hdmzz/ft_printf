@@ -24,14 +24,14 @@ void	ft_dispatch(va_list params, const char *format, int i, int *total)
 	else if (format[i] == 'X')
 		ft_putnb_base(va_arg(params, unsigned int),
 				"0123456789ABCDEF", total);
-	/* else if (format[i] == 'p')
-		ft_print_pointer(va_arg(params, void *)); */
+	else if (format[i] == 'p')
+		ft_put_ptr(va_arg(params, void *), total);
 	else if (format[i] == 'd' || format[i] == 'i')
 		ft_putnb(va_arg(params, int), total);
-	/* else if (format[i] == 'u')
-		ft_putnbr_u(va_arg(params, unsigned int));
+	else if (format[i] == 'u')
+		ft_putnb(va_arg(params, unsigned int), total);
 	else if (format[i] == '%')
-		write(1, "%", 1); */
+		ft_putc('%', total);
 }
 
 int	ft_printf(const char *format, ...)

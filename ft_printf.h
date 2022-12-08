@@ -23,6 +23,6 @@ void	ft_putc(char c, int *total);
 void	ft_puts(char *str, int *total);
 void	ft_putnb_base(long long nb, char *base, int *total);
 void	ft_putnb(unsigned long long nl, int *total);
-
+void	ft_put_ptr(void *ptr, int *total);
 
 #endif

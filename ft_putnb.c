@@ -29,3 +29,13 @@ void ft_putnb(unsigned long long nl, int *total)
 	}
 	ft_putnb_base(num, "0123456789", total);
 }
+
+void	ft_put_ptr(void *ptr, int *total)
+{
+	long	addr;
+	if (ptr == 0)
+		ft_puts("(nil)", total);
+	addr = (long unsigned)ptr;
+	ft_puts("0x", total);
+	ft_putnb_base(addr, "0123456789abcdef", total);
+}
