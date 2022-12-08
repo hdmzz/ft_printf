@@ -21,7 +21,7 @@ int		ft_printf(const char *s, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		ft_putnbr_base(long long nb, char *base);
-int		ft_print_pointer(unsigned long long thing);
+int		ft_print_pointer(void *ptr);
 int		ft_putnbr(long nl);
 int		ft_putnbr_u(unsigned long nl);
 

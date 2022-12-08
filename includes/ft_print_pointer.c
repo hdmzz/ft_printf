@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-int	ft_print_long_hex(unsigned long long addr)
+static int	print_long_as_hex(long unsigned addr)
 {
 	char	c;
 	int		total;
@@ -20,8 +20,8 @@ int	ft_print_long_hex(unsigned long long addr)
 	total = 0;
 	if (addr >= 16)
 	{
-		total += ft_print_long_hex(addr / 16);
-		total += ft_print_long_hex(addr % 16);
+		total += print_long_as_hex(addr / 16);
+		total += print_long_as_hex(addr % 16);
 	}
 	else
 	{
@@ -34,12 +34,15 @@ int	ft_print_long_hex(unsigned long long addr)
 	return (total);
 }
 
-int	ft_print_pointer(unsigned long long thing)
+int	ft_print_pointer(void *ptr)
 {
+	long	addr;
 	int		total;
-
+	if (ptr == 0)
+		return (ft_putstr("(nil)"));
+	addr = (long unsigned)ptr;
 	total = 0;
 	total += ft_putstr("0x");
-	total += ft_print_long_hex(thing);
+	total += print_long_as_hex(addr);
 	return (total);
 }

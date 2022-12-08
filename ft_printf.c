@@ -12,27 +12,30 @@
 
 #include "ft_printf.h"
 
-static size_t	ft_dispatch(va_list params, const char *format, int i)
+int	ft_dispatch(va_list params, const char *format, int i)
 {
+	int	total;
+
+	total = 0;
 	if (format[i] == 's')
-		return (ft_putstr(va_arg(params, char *)));
+		total += ft_putstr(va_arg(params, char *));
 	else if (format[i] == 'c')
-		return (ft_putchar(va_arg(params, int)));
+		total += ft_putchar(va_arg(params, int));
 	else if (format[i] == 'x')
-		return (ft_putnbr_base(va_arg(params, unsigned int),
-				"0123456789abcdef"));
+		total += ft_putnbr_base(va_arg(params, unsigned int),
+				"0123456789abcdef");
 	else if (format[i] == 'X')
-		return (ft_putnbr_base(va_arg(params, unsigned int),
-				"0123456789ABCDEF"));
+		total += ft_putnbr_base(va_arg(params, unsigned int),
+				"0123456789ABCDEF");
 	else if (format[i] == 'p')
-		return (ft_print_pointer((unsigned long long)va_arg(params, void *)));
+		total += ft_print_pointer(va_arg(params, void *));
 	else if (format[i] == 'd' || format[i] == 'i')
-		return (ft_putnbr(va_arg(params, int)));
+		total += ft_putnbr(va_arg(params, int));
 	else if (format[i] == 'u')
-		return (ft_putnbr_u(va_arg(params, unsigned int)));
+		total += ft_putnbr_u(va_arg(params, unsigned int));
 	else if (format[i] == '%')
-		return (write(1, "%", 1));
-	return (0);
+		total += write(1, "%", 1);
+	return (total);
 }
 
 int	ft_printf(const char *format, ...)

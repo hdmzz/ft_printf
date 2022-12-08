@@ -16,12 +16,13 @@ int	ft_putnbr_u(unsigned long nl)
 	unsigned long	num;
 	int				total;
 
+
 	total = 0;
 	num = nl;
 	if (num >= 100)
-		total += ft_putnbr_u(num);
-	else if ((num / 10) > 9)
+		total += ft_putnbr(num / 10);
+	else if ((num / 10) > 0)
 		total += ft_putchar((num / 10) + '0');
-	total += ft_putchar((num % 10) + '0');
+	total += ft_putchar(((num % 10) + '0'));
 	return (total);
 }
